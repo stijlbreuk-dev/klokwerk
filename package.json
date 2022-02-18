@@ -1,10 +1,10 @@
 {
-  "name": "datum",
+  "name": "januari",
   "version": "0.0.1",
   "description": "Chainable, immutable date object.",
-  "main": "dist/datum.cjs.js",
-  "module": "dist/datum.es.js",
-  "types": "dist/datum.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "eslint",

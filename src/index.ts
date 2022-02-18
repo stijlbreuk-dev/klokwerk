@@ -8,7 +8,7 @@ type DateConstructorArgs = [
   number?,
   number?
 ];
-type Setter = (current: Datum) => number | NumArgs;
+type Setter = (current: DateTime) => number | NumArgs;
 type SetArg = number | Setter;
 
 type FilterStartsWith<
@@ -21,7 +21,7 @@ export type DateSetterMethodName = FilterStartsWith<keyof Date, "set">;
 export type DateGetterMethodName = FilterStartsWith<keyof Date, "get">;
 export type DateToMethodName = FilterStartsWith<keyof Date, "to">;
 
-export class Datum {
+export class DateTime {
   native!: Date;
 
   constructor();
@@ -35,11 +35,11 @@ export class Datum {
     seconds?: number,
     ms?: number
   );
-  constructor(value: Datum);
+  constructor(value: DateTime);
   constructor() {
     if (!arguments[0]) {
       this._createNativeProxy(new Date());
-    } else if (arguments[0] instanceof Datum) {
+    } else if (arguments[0] instanceof DateTime) {
       this._createNativeProxy(new Date(arguments[0].native));
     } else {
       this._createNativeProxy(
@@ -81,7 +81,7 @@ export class Datum {
       this.native,
       this._parseValue(...(args as unknown as [SetArg, ...NumArgs]))
     );
-    return new Datum(this);
+    return new DateTime(this);
   }
 
   get day() {
@@ -100,9 +100,9 @@ export class Datum {
     return this.native.getDate();
   }
 
-  setDate(setter: Setter): Datum;
-  setDate(date: number): Datum;
-  setDate(): Datum {
+  setDate(setter: Setter): DateTime;
+  setDate(date: number): DateTime;
+  setDate(): DateTime {
     return this._applySetter("setDate", arguments);
   }
 
@@ -110,9 +110,9 @@ export class Datum {
     return this.native.getFullYear();
   }
 
-  setFullYear(setter: Setter): Datum;
-  setFullYear(year: number, month?: number, date?: number): Datum;
-  setFullYear(): Datum {
+  setFullYear(setter: Setter): DateTime;
+  setFullYear(year: number, month?: number, date?: number): DateTime;
+  setFullYear(): DateTime {
     return this._applySetter("setFullYear", arguments);
   }
 
@@ -120,14 +120,14 @@ export class Datum {
     return this.native.getHours();
   }
 
-  setHours(setter: Setter): Datum;
+  setHours(setter: Setter): DateTime;
   setHours(
     hours: number,
     minutes?: number,
     seconds?: number,
     ms?: number
-  ): Datum;
-  setHours(): Datum {
+  ): DateTime;
+  setHours(): DateTime {
     return this._applySetter("setHours", arguments);
   }
 
@@ -135,9 +135,9 @@ export class Datum {
     return this.native.getMilliseconds();
   }
 
-  setMilliseconds(setter: Setter): Datum;
-  setMilliseconds(ms: number): Datum;
-  setMilliseconds(): Datum {
+  setMilliseconds(setter: Setter): DateTime;
+  setMilliseconds(ms: number): DateTime;
+  setMilliseconds(): DateTime {
     return this._applySetter("setMilliseconds", arguments);
   }
 
@@ -145,9 +145,9 @@ export class Datum {
     return this.native.getMinutes();
   }
 
-  setMinutes(setter: Setter): Datum;
-  setMinutes(minutes: number, seconds?: number, ms?: number): Datum;
-  setMinutes(): Datum {
+  setMinutes(setter: Setter): DateTime;
+  setMinutes(minutes: number, seconds?: number, ms?: number): DateTime;
+  setMinutes(): DateTime {
     return this._applySetter("setMinutes", arguments);
   }
 
@@ -155,9 +155,9 @@ export class Datum {
     return this.native.getMonth();
   }
 
-  setMonth(setter: Setter): Datum;
-  setMonth(month: number, day?: number): Datum;
-  setMonth(): Datum {
+  setMonth(setter: Setter): DateTime;
+  setMonth(month: number, day?: number): DateTime;
+  setMonth(): DateTime {
     return this._applySetter("setMonth", arguments);
   }
 
@@ -165,9 +165,9 @@ export class Datum {
     return this.native.getSeconds();
   }
 
-  setSeconds(setter: Setter): Datum;
-  setSeconds(sec: number, ms?: number): Datum;
-  setSeconds(): Datum {
+  setSeconds(setter: Setter): DateTime;
+  setSeconds(sec: number, ms?: number): DateTime;
+  setSeconds(): DateTime {
     return this._applySetter("setSeconds", arguments);
   }
 
@@ -175,9 +175,9 @@ export class Datum {
     return this.native.getTime();
   }
 
-  setTime(setter: Setter): Datum;
-  setTime(time: number): Datum;
-  setTime(): Datum {
+  setTime(setter: Setter): DateTime;
+  setTime(time: number): DateTime;
+  setTime(): DateTime {
     return this._applySetter("setTime", arguments);
   }
 
@@ -185,9 +185,9 @@ export class Datum {
     return this.native.getUTCDate();
   }
 
-  setUTCDate(setter: Setter): Datum;
-  setUTCDate(date: number): Datum;
-  setUTCDate(): Datum {
+  setUTCDate(setter: Setter): DateTime;
+  setUTCDate(date: number): DateTime;
+  setUTCDate(): DateTime {
     return this._applySetter("setUTCDate", arguments);
   }
 
@@ -195,9 +195,9 @@ export class Datum {
     return this.native.getUTCFullYear();
   }
 
-  setUTCFullYear(setter: Setter): Datum;
-  setUTCFullYear(year: number, month?: number, date?: number): Datum;
-  setUTCFullYear(): Datum {
+  setUTCFullYear(setter: Setter): DateTime;
+  setUTCFullYear(year: number, month?: number, date?: number): DateTime;
+  setUTCFullYear(): DateTime {
     return this._applySetter("setUTCFullYear", arguments);
   }
 
@@ -205,14 +205,14 @@ export class Datum {
     return this.native.getUTCHours();
   }
 
-  setUTCHours(setter: Setter): Datum;
+  setUTCHours(setter: Setter): DateTime;
   setUTCHours(
     hours: number,
     minutes?: number,
     seconds?: number,
     ms?: number
-  ): Datum;
-  setUTCHours(): Datum {
+  ): DateTime;
+  setUTCHours(): DateTime {
     return this._applySetter("setUTCHours", arguments);
   }
 
@@ -220,9 +220,9 @@ export class Datum {
     return this.native.getUTCMilliseconds();
   }
 
-  setUTCMilliseconds(setter: Setter): Datum;
-  setUTCMilliseconds(ms: number): Datum;
-  setUTCMilliseconds(): Datum {
+  setUTCMilliseconds(setter: Setter): DateTime;
+  setUTCMilliseconds(ms: number): DateTime;
+  setUTCMilliseconds(): DateTime {
     return this._applySetter("setUTCMilliseconds", arguments);
   }
 
@@ -230,9 +230,9 @@ export class Datum {
     return this.native.getUTCMinutes();
   }
 
-  setUTCMinutes(setter: Setter): Datum;
-  setUTCMinutes(min: number, sec?: number, ms?: number): Datum;
-  setUTCMinutes(): Datum {
+  setUTCMinutes(setter: Setter): DateTime;
+  setUTCMinutes(min: number, sec?: number, ms?: number): DateTime;
+  setUTCMinutes(): DateTime {
     return this._applySetter("setUTCMinutes", arguments);
   }
 
@@ -240,9 +240,9 @@ export class Datum {
     return this.native.getUTCMonth();
   }
 
-  setUTCMonth(setter: Setter): Datum;
-  setUTCMonth(month: number, date?: number): Datum;
-  setUTCMonth(): Datum {
+  setUTCMonth(setter: Setter): DateTime;
+  setUTCMonth(month: number, date?: number): DateTime;
+  setUTCMonth(): DateTime {
     return this._applySetter("setUTCMonth", arguments);
   }
 
@@ -250,9 +250,9 @@ export class Datum {
     return this.native.getUTCSeconds();
   }
 
-  setUTCSeconds(setter: Setter): Datum;
-  setUTCSeconds(sec: number, ms?: number): Datum;
-  setUTCSeconds(): Datum {
+  setUTCSeconds(setter: Setter): DateTime;
+  setUTCSeconds(sec: number, ms?: number): DateTime;
+  setUTCSeconds(): DateTime {
     return this._applySetter("setUTCSeconds", arguments);
   }
 

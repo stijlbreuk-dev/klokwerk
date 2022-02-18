@@ -3,7 +3,7 @@ import { terser } from "rollup-plugin-terser";
 import { defineConfig } from "rollup";
 
 const baseConfig = defineConfig({
-  input: "src/datum.ts",
+  input: "src/index.ts",
   plugins: [typescript(), terser()],
 });
 
@@ -11,14 +11,14 @@ export default defineConfig([
   {
     ...baseConfig,
     output: {
-      file: "dist/datum.cjs.js",
+      file: "dist/index.cjs.js",
       format: "cjs",
     },
   },
   {
     ...baseConfig,
     output: {
-      file: "dist/datum.es.js",
+      file: "dist/index.es.js",
       format: "es",
     },
   },
