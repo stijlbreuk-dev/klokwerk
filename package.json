@@ -1,0 +1,38 @@
+{
+  "name": "datum",
+  "version": "0.0.1",
+  "description": "Chainable, immutable date object.",
+  "main": "dist/datum.cjs.js",
+  "module": "dist/datum.es.js",
+  "types": "dist/datum.d.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint",
+    "build": "eslint && jest && rollup -c",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "date",
+    "immutable",
+    "chain"
+  ],
+  "author": "Stef van Wijchen",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/jest": "^27.4.0",
+    "@types/rollup": "^0.54.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "rollup": "^2.67.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "ts-jest": "^27.1.3",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5"
+  }
+}
