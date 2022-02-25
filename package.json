@@ -1,5 +1,5 @@
 {
-  "name": "januari",
+  "name": "klokwerk",
   "version": "0.0.1",
   "description": "Chainable, immutable date object.",
   "main": "dist/index.cjs.js",

@@ -1,6 +1,6 @@
-# Januari
+# Klokwerk
 
-Januari is a utility library that improves developer experience when working with JS `Date` objects. The library features chainable setters, dynamic getters and immutability.
+Klokwerk is a utility library that improves developer experience when working with JS `Date` objects. The library features chainable setters, dynamic getters and immutability.
 
 ## Usage
 
@@ -17,7 +17,7 @@ let oneYearFromNow = new DateTime().setYear((current) => current.fullYear + 1);
 you can construct a new date object just like you are used to do with `Date`. It essentially works the same as the native JS `Date` interface.
 
 ```typescript
-import { DateTime } from "januari";
+import { DateTime } from "klokwerk";
 
 new DateTime(); // date from current time
 new DateTime("2022-02-18"); // date from string
