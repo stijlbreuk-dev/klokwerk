@@ -1,6 +1,6 @@
 {
   "name": "klokwerk",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Chainable, immutable date object.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -14,7 +14,7 @@
     "lint": "eslint",
     "build": "eslint && jest && rollup -c",
     "prepare": "husky install",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "date",
