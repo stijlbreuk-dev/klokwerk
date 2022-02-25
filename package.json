@@ -1,10 +1,10 @@
 {
   "name": "klokwerk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Chainable, immutable date object.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/stijlbreuk/klokwerk"
