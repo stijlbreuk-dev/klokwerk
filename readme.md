@@ -70,3 +70,21 @@ You can access the native date object by referencing `.native`.
 ```typescript
 new DateTime().native; // Date
 ```
+
+### valueOf and toString implementations
+
+#### valueOf
+
+`DateTime` implements `valueOf`, and behaves like native `Date.prototype.valueOf`
+
+```
+let time = +new DateTime(); // number
+```
+
+#### toString
+
+`DateTime` returns an ISO string
+
+```
+let iso = new DateTime().toString(); // ISO format string
+```

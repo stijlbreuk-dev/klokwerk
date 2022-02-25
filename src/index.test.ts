@@ -124,6 +124,11 @@ describe("DateTime object creation", () => {
       "1993-03-19T23:00:00.000Z"
     );
   });
+
+  it("should return a number when calling `valueOf`", () => {
+    expect(new DateTime(1993, 2, 20).valueOf()).toBe(732582000000);
+    expect(typeof +new DateTime()).toBe("number");
+  });
 });
 
 function itShouldReturnNewDateTimeObject(method: DateSetterMethodName) {

@@ -280,6 +280,10 @@ export class DateTime {
     return this.native.toLocaleTimeString();
   }
 
+  valueOf() {
+    return this.native.valueOf();
+  }
+
   toString() {
     return this.native.toISOString();
   }
