@@ -85,14 +85,6 @@ describe("DateTime object creation", () => {
     expect(new DateTime().native).toBeInstanceOf(Date);
   });
 
-  it("should recreate <DateTime>.native date mutating it directly", () => {
-    const datum = new DateTime();
-    const date1 = datum.native;
-    datum.native.setTime(0);
-    const date2 = datum.native;
-    expect(date1).not.toBe(date2);
-  });
-
   it("should implement all native Date `setX` methods", () => {
     const date = new DateTime();
     expect(setterMethods.every((method) => method in date)).toBe(true);

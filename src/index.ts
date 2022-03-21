@@ -38,33 +38,12 @@ export class DateTime {
   constructor(value: DateTime);
   constructor() {
     if (!arguments[0]) {
-      this._createNativeProxy(new Date());
+      this.native = new Date();
     } else if (arguments[0] instanceof DateTime) {
-      this._createNativeProxy(new Date(arguments[0].native));
+      this.native = new Date(arguments[0].native);
     } else {
-      this._createNativeProxy(
-        new Date(...(arguments as unknown as DateConstructorArgs))
-      );
+      this.native = new Date(...(arguments as unknown as DateConstructorArgs));
     }
-  }
-
-  private _createNativeProxy(date: Date) {
-    const self = this;
-    this.native = new Proxy(date, {
-      get: (target, prop) => {
-        const value = target[prop as keyof Date];
-        if (isString(prop) && prop.startsWith("set")) {
-          return function () {
-            target[prop as DateSetterMethodName](
-              ...(arguments as unknown as [number, ...NumArgs])
-            );
-            self.native = new Date(target);
-          }.bind(target);
-        } else {
-          return value.bind(target);
-        }
-      },
-    });
   }
 
   private _parseValue<T extends NumArgs = NumArgs>(
