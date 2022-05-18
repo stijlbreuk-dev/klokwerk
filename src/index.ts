@@ -56,11 +56,12 @@ export class DateTime {
   }
 
   private _applySetter(name: DateSetterMethodName, args: IArguments) {
-    this.native[name].apply(
-      this.native,
+    const instance = new DateTime(this);
+    instance.native[name].apply(
+      instance.native,
       this._parseValue(...(args as unknown as [SetArg, ...NumArgs]))
     );
-    return new DateTime(this);
+    return instance;
   }
 
   get day() {

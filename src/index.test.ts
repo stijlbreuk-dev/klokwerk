@@ -124,10 +124,19 @@ describe("DateTime object creation", () => {
 });
 
 function itShouldReturnNewDateTimeObject(method: DateSetterMethodName) {
-  it("should return a new DateTime object", () => {
+  it("should return a new DateTime object without mutating the original", () => {
+    const getterPropertyName = method.replace("set", "").toLocaleLowerCase();
     const date = new DateTime();
-    expect(date[method](1)).toBeInstanceOf(DateTime);
-    expect(date[method](1)).not.toBe(date);
+    const date2 = date[method](1);
+
+    expect(date2).toBeInstanceOf(DateTime);
+    expect(date2).not.toBe(date);
+
+    if (getterPropertyName in new DateTime()) {
+      expect(date[getterPropertyName as unknown as keyof DateTime]).not.toBe(
+        date2[getterPropertyName as unknown as keyof DateTime]
+      );
+    }
   });
 }
 
